@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Visualizations</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+        <script src="node_modules/vega/build/vega.js"></script>
+        <script src="node_modules/vega-lite/vega-lite.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            Vega Specification:
+            <select id="specs">
+                <option value="">-----</option>
+            </select> &nbsp; Renderer:
+            <select id="render">
+                <option value="svg" selected>svg</option>
+                <option value="canvas">canvas</option>
+            </select> <br/>
+        </div>
+        <div id="view"></div>
+        <script src="main.js"></script>
+    </body>
+</html>
