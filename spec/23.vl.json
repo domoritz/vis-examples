@@ -1,0 +1,9 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": { "url": "data/cars.csv" },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "city-mpg", "type": "quantitative", "bin": true, "title": "City MPG"},
+    "y": {"field": "*", "type": "quantitative", "aggregate": "count"}
+  }
+}
