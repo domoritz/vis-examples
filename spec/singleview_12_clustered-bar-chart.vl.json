@@ -1,0 +1,10 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": { "url": "data/cars.csv" },
+  "mark": "bar",
+  "encoding": {
+    "row": {"field": "body-style", "type": "nominal", "title": "Body Style"},
+    "y": {"field": "fuel", "type": "nominal", "title": "Fuel Type"},
+    "x": {"aggregate": "average", "field": "city-mpg", "type": "quantitative", "title": "City MPG"}
+  }
+}
