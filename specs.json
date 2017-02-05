@@ -1,10 +1,9 @@
 [
-    "bar.vg.json",
-    "bar.vl.json",
-    "3.vl.json",
-    "4.vl.json",
-    "5.vl.json",
+    "singleview_3_hist-cat.vl.json",
+    "singleview_4_hist-quant.vl.json",
+    "singleview_5_hist-trellis.vl.json",
     "singleview_11_bar-chart.vl.json",
     "singleview_12_clustered-bar-chart.vl.json",
-    "singleview_14_scatterplot.vl.json"
+    "singleview_14_scatterplot.vl.json",
+    "singleview_20_force.vg.json"
 ]
