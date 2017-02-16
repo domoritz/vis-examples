@@ -1,0 +1,9 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": {"url": "data/complaints.csv", "format": {"type": "csv"}},
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Date received", "type": "temporal", "timeUnit": "year-month"},
+    "y": {"field": "*", "aggregate": "count", "type": "quantitative"}
+  }
+}
