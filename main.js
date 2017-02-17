@@ -35,7 +35,7 @@ loader.load('specs.json')
 
 function load(name) {
   if (!name) {
-    if (view) view.finalize(), container.innerHTML = '';
+    if (view) container.innerHTML = '';
     return;
   }
   // update select widget state
@@ -45,25 +45,9 @@ function load(name) {
       select.selectedIndex = i; break;
     }
   }
-  // load vega spec, then visualize it
-  loader.load(url = './spec/' + name)
-    .then(function(data) {
-      console.log('LOADED', url);
-      var spec = JSON.parse(data);
-      var vgSpec = name.indexOf('vl.json') > -1 ? vl.compile(spec).spec : spec;
-      visualize(spec = vgSpec);
-    })
-    .catch(function(err) {
-      console.error(err, err.stack);
-    });
-}
 
-function visualize(spec) {
-  if (view) view.finalize(); // finalize existing view
-  view = new vega.View(runtime = vega.parse(spec))
-    .logLevel(vega.Warn)
-    .renderer(renderType)
-    .initialize(container)
-    .hover()
-    .run();
+  vega.embed('#view', './spec/' + name, {}, function(err, view) {
+    if (err) return console.error(err);
+    console.log(view);
+  });
 }
