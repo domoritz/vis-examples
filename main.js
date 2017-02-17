@@ -3,7 +3,8 @@ var container = document.querySelector('#view'),
     renderType = 'svg',
     runtime = null,
     spec = null,
-    view = null;
+    view = null,
+    current = null;
 
 var select = document.querySelector('#specs');
 
@@ -15,7 +16,7 @@ var render = document.querySelector('#render');
 
 render.addEventListener('change', function() {
   renderType = render.options[render.selectedIndex].value;
-  if (view) view.renderer(renderType).run();
+  if (current) load(current);
 });
 
 loader.load('specs.json')
@@ -35,7 +36,7 @@ loader.load('specs.json')
 
 function load(name) {
   if (!name) {
-    if (view) container.innerHTML = '';
+    if (view) current = null, container.innerHTML = '';
     return;
   }
   // update select widget state
@@ -46,8 +47,9 @@ function load(name) {
     }
   }
 
-  vega.embed('#view', './spec/' + name, {}, function(err, view) {
+  vega.embed('#view', './spec/' + name, {renderer: renderType}, function(err, res) {
     if (err) return console.error(err);
-    console.log(view);
+    view = res.view;
+    current = name;
   });
 }
