@@ -1,9 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v3.0.json",
   "signals": [
-    {"name": "radius","value": 150},
-    {"name": "offset", "value": 15},
-    {"name": "width", "update": "5 * (offset + 2*radius)"}
+    {"name": "radius","value": 80},
+    {"name": "height","update": "6 * 2*radius"}
   ],
   "data": [
     {
@@ -13,10 +12,21 @@
       "transform": [
         {
           "type": "aggregate",
-          "groupby": ["Company response to consumer", "Product"],
+          "groupby": ["Company response to consumer","Product"],
           "fields": ["Company response to consumer"],
           "ops": ["count"],
           "as": ["count"]
+        }
+      ]
+    },
+    {
+      "name": "products",
+      "source": "table",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["Product"],
+          "fields": ["Company response to consumer"]
         }
       ]
     }
@@ -25,15 +35,51 @@
     {
       "name": "gscale",
       "type": "band",
-      "range": [0, {"signal": "width"}],
-      "round": true,
+      "range": [0,{"signal": "height"}],
+      "domain": {"data": "table","field": "Product"}
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "range": "category",
       "domain": {
         "data": "table",
-        "field": "Product"
+        "field": "Company response to consumer"
+      }
+    }
+  ],
+  "legends": [
+    {
+      "fill": "color",
+      "orient": "none",
+      "title": "Company response to consumer",
+      "encode": {
+        "legend": {
+          "update": {
+            "x": {"signal": "radius + 30"}
+          }
+        }
       }
     }
   ],
   "marks": [
+    {
+      "type": "text",
+      "from": {"data": "products"},
+      "encode": {
+        "enter": {
+          "text": {"field": "Product"},
+          "y": {
+            "scale": "gscale",
+            "field": "Product",
+            "offset": "-10"
+          },
+          "align": {
+            "value": "center"
+          }
+        }
+      }
+    },
     {
       "name": "product-group",
       "type": "group",
@@ -48,14 +94,16 @@
         {
           "name": "pied",
           "source": "responses",
-          "transforms": [
-            {"type": "pie","field": "count"}
-          ]
+          "transform": [{"type": "pie","field": "count"}]
         }
       ],
       "encode": {
         "enter": {
-          "x": {"scale": "gscale", "field": "Product", "offset": {"signal": "offset"}}
+          "y": {
+            "scale": "gscale",
+            "field": "Product",
+            "offset": {"signal": "radius"}
+          }
         }
       },
       "marks": [
@@ -70,27 +118,11 @@
               "endAngle": {"field": "endAngle"},
               "innerRadius": {"value": 20},
               "outerRadius": {"signal": "radius"},
-              "stroke": {"value": "#fff"}
-            },
-            "update": {"fill": {"value": "#ccc"}},
-            "hover": {"fill": {"value": "pink"}}
-          }
-        },
-        {
-          "type": "text",
-          "from": {"data": "table"},
-          "encode": {
-            "enter": {
-              "x": {"field": {"group": "width"},"mult": 0.5},
-              "y": {"field": {"group": "height"},"mult": 0.5},
-              "radius": {"signal": "radius","offset": 8},
-              "theta": {
-                "signal": "(datum.startAngle + datum.endAngle)/2"
-              },
-              "fill": {"value": "#000"},
-              "align": {"value": "center"},
-              "baseline": {"value": "middle"},
-              "text": {"field": "Company response to consumer"}
+              "stroke": {"value": "#fff"},
+              "fill": {
+                "field": "Company response to consumer",
+                "scale": "color"
+              }
             }
           }
         }
