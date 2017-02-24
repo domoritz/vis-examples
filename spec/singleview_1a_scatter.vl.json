@@ -1,0 +1,20 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "mark": "point",
+  "data": {"url": "data/complaints.csv", "format": {"type": "csv"}},
+  "transform": {
+    "calculate": [{
+      "as": "relief",
+      "expr": "indexof(datum['Company response to consumer'], 'relief') >= 0 ? 1 : 0"
+    },
+    {
+      "as": "norelief",
+      "expr": "indexof(datum['Company response to consumer'], 'relief') == -1 ? 1 : 0"
+    }]
+  },
+  "encoding": {
+    "x": {"aggregate": "sum", "field": "relief", "type": "quantitative", "title": "# of closed-any-relief"},
+    "y": {"aggregate": "sum", "field": "norelief", "type": "quantitative", "title": "# of closed-no-relief"},
+    "color": {"field": "Product", "type": "nominal"}
+  }
+}
