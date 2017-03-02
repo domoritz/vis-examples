@@ -16,6 +16,13 @@
           "fields": ["Company response to consumer"],
           "ops": ["count"],
           "as": ["count"]
+        },
+        {
+          "type": "collect",
+          "sort": {
+            "field": "sum",
+            "order": "ascending"
+          }
         }
       ]
     },
@@ -44,7 +51,8 @@
       "range": "category",
       "domain": {
         "data": "table",
-        "field": "Company response to consumer"
+        "field": "Company response to consumer",
+        "sort": {"op": "sum", "field": "count", "order": "descending"}
       }
     }
   ],
@@ -94,7 +102,7 @@
         {
           "name": "pied",
           "source": "responses",
-          "transform": [{"type": "pie","field": "count"}]
+          "transform": [{"type": "pie", "field": "count", "sort":false}]
         }
       ],
       "encode": {

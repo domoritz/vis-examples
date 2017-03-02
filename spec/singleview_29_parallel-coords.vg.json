@@ -125,35 +125,35 @@
       "orient": "left",
       "zindex": 1,
       "scale": "average_city-mpg",
-      "title": "City MPG",
+      "title": "Mean City MPG",
       "offset": {"scale": "ord","value": "average_city-mpg","mult": -1}
     },
     {
       "orient": "left",
       "zindex": 1,
       "scale": "average_highway-mpg",
-      "title": "Highway MPG",
+      "title": "Mean Highway MPG",
       "offset": {"scale": "ord","value": "average_highway-mpg","mult": -1}
     },
     {
       "orient": "left",
       "zindex": 1,
       "scale": "average_price",
-      "title": "Price",
+      "title": "Mean Price",
       "offset": {"scale": "ord","value": "average_price","mult": -1}
     },
     {
       "orient": "left",
       "zindex": 1,
       "scale": "average_horsepower",
-      "title": "Horsepower",
+      "title": "Mean Horsepower",
       "offset": {"scale": "ord","value": "average_horsepower","mult": -1}
     },
     {
       "orient": "left",
       "zindex": 1,
       "scale": "average_num-of-cylinders",
-      "title": "# cylinders",
+      "title": "Mean # cylinders",
       "offset": {"scale": "ord","value": "average_num-of-cylinders","mult": -1}
     }
   ],
