@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": { "url": "data/cars.csv" },
+  "layer": [
+    {
+      "mark": "rule",
+      "encoding": {
+        "x": {"field": "body-style", "type": "nominal"},
+        "y": {
+          "aggregate": "min",
+          "field": "city-mpg",
+          "type": "quantitative",
+          "axis": {"title": "population"}
+        },
+        "y2": {
+          "aggregate": "max",
+          "field": "city-mpg",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": "tick",
+      "encoding": {
+        "x": {"field": "body-style", "type": "nominal"},
+        "y": {
+          "aggregate": "min",
+          "field": "city-mpg",
+          "type": "quantitative"
+        },
+        "size": {"value": 5}
+      }
+    },
+    {
+      "mark": "tick",
+      "encoding": {
+        "x": {"field": "body-style", "type": "nominal"},
+        "y": {
+          "aggregate": "max",
+          "field": "city-mpg",
+          "type": "quantitative"
+        },
+        "size": {"value": 5}
+      }
+    },
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "body-style", "type": "nominal"},
+        "y": {
+          "aggregate": "q1",
+          "field": "city-mpg",
+          "type": "quantitative"
+        },
+        "y2": {
+          "aggregate": "q3",
+          "field": "city-mpg",
+          "type": "quantitative"
+        },
+        "size": {"value": 5}
+      }
+    },
+    {
+      "mark": "tick",
+      "encoding": {
+        "x": {"field": "body-style", "type": "nominal"},
+        "y": {
+          "aggregate": "median",
+          "field": "city-mpg",
+          "type": "quantitative"
+        },
+        "size": {"value": 5},
+        "color": { "value" : "white" }
+      }
+    }
+  ]
+}
