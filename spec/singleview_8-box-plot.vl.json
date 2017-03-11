@@ -10,7 +10,7 @@
           "aggregate": "min",
           "field": "city-mpg",
           "type": "quantitative",
-          "axis": {"title": "population"}
+          "axis": {"title": "City MPG"}
         },
         "y2": {
           "aggregate": "max",

@@ -10,7 +10,7 @@
           "aggregate": "min",
           "field": "curb-weight",
           "type": "quantitative",
-          "axis": {"title": "population"}
+          "axis": {"title": "Curb Weight"}
         },
         "y2": {
           "aggregate": "max",
