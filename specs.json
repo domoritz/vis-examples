@@ -4,6 +4,7 @@
     "singleview_1c_stacked.vl.json",
     "singleview_2a-multi-histogram.vl.json",
     "singleview_2b-bar.vl.json",
+    "singleview_2c-box-plot.vl.json",
     "singleview_3_hist-cat.vl.json",
     "singleview_4_hist-quant.vl.json",
     "singleview_5_hist-trellis.vl.json",

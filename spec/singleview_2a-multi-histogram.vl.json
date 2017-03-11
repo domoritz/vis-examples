@@ -5,6 +5,6 @@
   "encoding": {
     "x": {"bin": true, "field": "curb-weight", "type": "quantitative", "title": "Curb Weight"},
     "y": { "aggregate": "count", "field": "*", "type": "quantitative", "stack": "none"},
-    "color": {"field": "body-style", "type": "nominal", "title": "Body Style"}
+    "column": {"field": "body-style", "type": "nominal", "title": "Body Style"}
   }
 }
