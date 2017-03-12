@@ -1,55 +1,42 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v3.0.json",
-  "width": 600,
+  "width": 960,
   "height": 500,
-  "padding": 5,
+  "padding": 2.5,
+
   "signals": [
     {
-      "name": "layout",
-      "value": "squarify",
+      "name": "layout", "value": "squarify",
       "bind": {
         "input": "select",
-        "options": ["squarify","binary","slicedice"]
+        "options": [
+          "squarify",
+          "binary",
+          "slicedice"
+        ]
       }
     },
     {
-      "name": "aspectRatio",
-      "value": 1.6,
-      "bind": {"input": "range","min": 0.2,"max": 5,"step": 0.1}
+      "name": "aspectRatio", "value": 1.6,
+      "bind": {"input": "range", "min": 0.2, "max": 5, "step": 0.1}
     }
   ],
+
   "data": [
     {
       "name": "tree",
-      "url": "data/complaints.csv",
-      "format": {"type": "csv"},
+      "url": "data/complaints_tree.json",
       "transform": [
         {
-          "type": "formula",
-          "as": "relief",
-          "expr": "indexof(datum['Company response to consumer'], 'relief') >= 0 ? 1 : 0"
-        },
-        {
-          "type": "aggregate",
-          "groupby": ["Product","Sub-product"],
-          "fields": ["relief","relief"],
-          "ops": ["sum","count"]
-        },
-        {
-          "type": "formula",
-          "as": "ratio",
-          "expr": "datum.sum_relief / datum.count_relief"
-        },
-        {
-          "type": "nest",
+          "type": "stratify",
           "key": "id",
-          "keys": ["Product","Sub-product"]
+          "parentKey": "parent"
         },
         {
           "type": "treemap",
-          "field": "count_relief",
-          "sort": {"field": "Product"},
+          "field": "size",
           "round": true,
+          "padding": 2,
           "method": {"signal": "layout"},
           "ratio": {"signal": "aspectRatio"},
           "size": [{"signal": "width"}, {"signal": "height"}]
@@ -59,49 +46,66 @@
     {
       "name": "nodes",
       "source": "tree",
-      "transform": [{"type": "filter","expr": "datum.children"}]
+      "transform": [{ "type": "filter", "expr": "datum.children" }]
     },
     {
       "name": "leaves",
       "source": "tree",
-      "transform": [{"type": "filter","expr": "!datum.children"}]
+      "transform": [{ "type": "filter", "expr": "!datum.children" }]
     }
   ],
+
   "scales": [
     {
       "name": "color",
-      "type": "ordinal",
-      "domain": {"data": "tree", "field": "Product"},
-      "range": {"scheme": "category10"}
+      "domain": [0, 1],
+      "type": "sequential",
+      "range": "ramp"
     },
     {
       "name": "size",
       "type": "ordinal",
-      "domain": [0,1,2,3],
-      "range": [256,28,20,14]
+      "domain": [0, 1, 2, 3],
+      "range": [120, 28, 10]
+    },
+    {
+      "name": "opacity",
+      "type": "ordinal",
+      "domain": [0, 1, 2, 3],
+      "range": [0.15, 0.5, 0.8, 1.0]
     }
   ],
-  "legends": [{
-    "fill": "color",
-    "orient": "right",
-    "title": "Product"
-  }],
+
   "marks": [
     {
       "type": "rect",
-      "from": {"data": "tree"},
+      "from": {"data": "nodes"},
+      "interactive": false,
       "encode": {
         "enter": {
-          "stroke": {"value": "#fff"}
         },
         "update": {
           "x": {"field": "x0"},
           "y": {"field": "y0"},
           "x2": {"field": "x1"},
+          "y2": {"field": "y1"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "leaves"},
+      "encode": {
+        "update": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
           "y2": {"field": "y1"},
-          "fill": {"scale": "color","field": "Product"}
+          "fill": {"scale": "color", "field": "relief"}
         },
-        "hover": {"fill": {"value": "red"}}
+        "hover": {
+          "fill": {"value": "red"}
+        }
       }
     },
     {
@@ -113,8 +117,9 @@
           "align": {"value": "center"},
           "baseline": {"value": "middle"},
           "fill": {"value": "#000"},
-          "text": {"signal": "datum['Sub-product'] || 'other'"},
-          "fontSize": {"scale": "size","field": "depth"}
+          "text": {"field": "name"},
+          "fontSize": {"scale": "size", "field": "depth"},
+          "fillOpacity": {"scale": "opacity", "field": "depth"}
         },
         "update": {
           "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},

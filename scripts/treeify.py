@@ -2,6 +2,9 @@ import csv
 from collections import defaultdict
 import json
 
+products = defaultdict(lambda : defaultdict(int))
+sub_products = defaultdict(lambda : defaultdict(int))
+
 data = defaultdict(lambda : defaultdict(lambda : defaultdict(int)))
 tree = [{
     'name': 'Complaints',
@@ -11,39 +14,40 @@ tree = [{
 with open('../data/complaints.csv') as f:
     reader = csv.DictReader(f)
     for row in reader:
-        if 'relief' in row['Company response to consumer']:
-            data[row['Product']][row['Sub-product']]['relief'] += 1
-        else:
-            data[row['Product']][row['Sub-product']]['no_relief'] += 1
+        prod = row['Product']
+        sub = row['Sub-product']
+        products[prod]['count'] += 1
+        if (sub):
+            sub_products[sub]['prod'] = prod
+            sub_products[sub]['count'] += 1
 
-    parent = 2
-    id = 100
-    for p, pp in data.iteritems():
-        size = 0
-        for s, ss in pp.iteritems():
-            _sum = 0
-            _count = 0
-            if (s):
-                _sum += ss['relief']
-                _count += ss['relief'] + ss['no_relief']
-                data[p][s]['ratio'] = 1.0 * ss['relief'] / (ss['relief'] + ss['no_relief'])
-                subSize = ss['relief'] + ss['no_relief']
-                size += subSize
-                tree.append({
-                    'id': id,
-                    'name': s,
-                    'size': subSize,
-                    'parent': parent,
-                    'percent': data[p][s]['ratio']
-                })
-                id += 1
+        if 'relief' in row['Company response to consumer']:
+            products[prod]['relief'] += 1
+            if (sub):
+                sub_products[sub]['relief'] += 1
+
+
+    id = 2
+    for p, pp in products.iteritems():
+        pp['id'] = id
+        id += 1
+
         tree.append({
-            'id': parent,
             'name': p,
-            'size': size,
-            'parent': 1,
-            'percent': 1.0 * _sum / _count if _count else 0
+            #'size': pp['count'],
+            'id': pp['id'],
+            #'relief': 1.0 * pp['relief'] / pp['count'],
+            'parent': 1
         })
-        parent += 1
+    
+    for p, pp in sub_products.iteritems():
+        tree.append({
+            'name': p,
+            'size': pp['count'],
+            'id': id,
+            'parent': products[pp['prod']]['id'],
+            'relief': 1.0 * pp['relief'] / pp['count']
+        })
+        id += 1
 
     print(json.dumps(tree))
