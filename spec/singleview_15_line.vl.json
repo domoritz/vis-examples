@@ -3,7 +3,7 @@
   "data": {"url": "data/complaints.csv", "format": {"type": "csv"}},
   "mark": "line",
   "encoding": {
-    "x": {"field": "Date received", "type": "temporal", "timeUnit": "year-month"},
+    "x": {"timeUnit": "yearmonth", "field": "Date received", "type": "temporal"},
     "y": {"field": "*", "aggregate": "count", "type": "quantitative"}
   }
 }
