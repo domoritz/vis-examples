@@ -76,6 +76,20 @@
     }
   ],
 
+  "legends": [{
+    "fill": "color",
+    "orient": "right",
+    "type": "gradient",
+    "title": "Relief received",
+    "encode": {
+      "labels": {
+        "enter": {
+          "text": {"signal": "datum.value * 100 + '%'"}
+        }
+      }
+    }
+  }],
+
   "marks": [
     {
       "type": "rect",

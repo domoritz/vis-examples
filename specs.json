@@ -23,7 +23,9 @@
   "singleview_19_heatmap.vl.json",
   "singleview_20_force.vg.json",
   "singleview_21_circular.vg.json",
+  "singleview_22_treeview.vg.json",
   "singleview_23_treemap.vg.json",
+  "singleview_24_sunburst.vg.json",
   "singleview_25_adjacency.vg.json",
   "singleview_28_radar.vg.json",
   "singleview_29_parallel-coords.vg.json"
