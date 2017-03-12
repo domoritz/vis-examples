@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "vega": "3",
+    "vega-embed": "3",
+    "vega-lite": "2"
+  }
+}
