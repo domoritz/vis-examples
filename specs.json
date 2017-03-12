@@ -1,6 +1,7 @@
 [
-  "multiview_2_bars.vl.json",
-  "multiview_3_bars.vl.json",
+  "multiview_2_bars-states.vl.json",
+  "multiview_3_bars-levels.vl.json",
+  "multiview_5_bars-region.vl.json",
   "singleview_1a_scatter.vl.json",
   "singleview_1b_clustered-bar.vl.json",
   "singleview_1c_stacked.vl.json",

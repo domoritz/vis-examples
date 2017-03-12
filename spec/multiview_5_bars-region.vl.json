@@ -6,7 +6,7 @@
   },
   "mark": "bar",
   "encoding": {
-    "column": {
+    "x": {
       "field": "key",
       "type": "ordinal",
       "sort": {
@@ -14,12 +14,12 @@
         "field": "order"
       }
     },
-    "x": {
+    "y": {
       "field": "value",
       "type": "quantitative"
     },
-    "y": {
-      "field": "Geography",
+    "row": {
+      "field": "region",
       "type": "nominal",
       "sort": {
         "op": "min",
