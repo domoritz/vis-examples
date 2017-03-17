@@ -214,7 +214,8 @@
                 "signal": "scale(datum.key, datum.value) * sin(scale('angle', datum.key))"
               },
               "stroke": {"scale": "color","field": "body-style"},
-              "strokeWidth": {"value": 2}
+              "strokeWidth": {"value": 2},
+              "interpolate": {"value": "linear-closed"}
             }
           }
         }
