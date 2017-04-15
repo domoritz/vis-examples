@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
   "data": {"url": "data/complaints.csv", "format": {"type": "csv"}},
-  "mark": "bar",
+  "mark": "rect",
   "encoding": {
     "y": {"field": "Product", "type": "nominal"},
     "x": {"field": "Company response to consumer", "type": "nominal"},
