@@ -19,7 +19,7 @@
           "field": "size",
           "sort": {"field": "value"},
           "size": [{"signal": "2 * PI"}, {"signal": "width / 2"}],
-          "as": ["a0", "r0", "a1", "r1", "depth", "children"]
+          "as": ["a0", "r0", "a1", "r1"]
         }
       ]
     }
