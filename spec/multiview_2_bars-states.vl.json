@@ -4,9 +4,9 @@
     "url": "data/census-income-pivoted.csv",
     "format": {"type": "csv", "parse": {"order": "number"}}
   },
-  "transform": {
-    "filter": "datum.key !== 'Total'"
-  },
+  "transform": [
+    {"filter": "datum.key !== 'Total'"}
+  ],
   "mark": "bar",
   "encoding": {
     "x": {
