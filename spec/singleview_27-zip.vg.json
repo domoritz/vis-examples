@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v3.0.json",
+  "width": 750,
+  "height": 480,
+  "autosize": "none",
+
+  "signals": [
+    {
+      "name": "selected", "value": null,
+      "on": [
+        {"events": "symbol:mouseover", "update": "datum"},
+        {"events": "symbol:mouseout", "update": "null"}
+      ]
+    }
+  ],
+
+  "projections": [
+    {
+      "name": "projection",
+      "type": "albersUsa",
+      "scale": 900,
+      "translate": [{"signal": "width / 2"}, {"signal": "height / 2"}]
+    }
+  ],
+ "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [0,1,2,3,4,5,6,7,8,9],
+      "range": {"scheme": "category10"}
+    }
+  ],
+  "data": [
+    {
+      "name": "states",
+      "url": "data/us-10m.json",
+      "format": {"type": "topojson", "feature": "states"},
+      "transform": [
+        {
+          "type": "geopath",
+          "projection": "projection"
+        }
+      ]
+    },
+    {
+      "name": "zipcodes",
+      "url": "data/zip_codes_states.csv",
+      "format": {"type": "csv", "parse": {"longitude": "number", "latitude": "number", "zip_code": "string"}},
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "substring(datum.zip_code, 0, 1)",
+          "as": "digit"
+        },
+        {
+          "type": "geopoint",
+          "projection": "projection",
+          "fields": ["longitude", "latitude"]
+        }
+      ]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "path",
+      "from": {"data": "states"},
+      "encode": {
+        "enter": {
+          "strokeWidth": {"value": "1"},
+          "stroke": {"value": "#fff"},
+          "fill": {"value": "#ddd"},
+          "path": {"field": "path"}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "interactive": false,
+      "from": {"data": "zipcodes"},
+      "encode": {
+        "enter": {
+          "size": {"value": 2},
+          "shape": {"value": "circle"},
+          "fill": {"scale": "color", "field": "digit"}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"}
+        }
+      }
+    }
+  ]
+}
