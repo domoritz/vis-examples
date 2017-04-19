@@ -12,7 +12,7 @@
   "singleview_3_hist-cat.vl.json",
   "singleview_4_hist-quant.vl.json",
   "singleview_5_hist-trellis.vl.json",
-  "singleview_8-box-plot.vl.json",
+  "singleview_8_box-plot.vl.json",
   "singleview_9_density-cat.vl.json",
   "singleview_10_density-cont.vl.json",
   "singleview_11_bar-chart.vl.json",
@@ -29,7 +29,8 @@
   "singleview_23_treemap.vg.json",
   "singleview_24_sunburst.vg.json",
   "singleview_25_adjacency.vg.json",
-  "singleview_27-zip.vg.json",
+  "singleview_26_map.vg.json",
+  "singleview_27_zip.vg.json",
   "singleview_28_radar.vg.json",
   "singleview_29_parallel-coords.vg.json"
 ]

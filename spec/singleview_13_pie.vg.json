@@ -1,9 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v3.0.json",
-  "signals": [
-    {"name": "radius","value": 80},
-    {"name": "height","update": "6 * 2*radius"}
-  ],
+  "autosize": "pad",
+  "signals": [{"name": "radius","value": 80}],
   "data": [
     {
       "name": "table",
@@ -19,32 +17,12 @@
         },
         {
           "type": "collect",
-          "sort": {
-            "field": "sum",
-            "order": "ascending"
-          }
-        }
-      ]
-    },
-    {
-      "name": "products",
-      "source": "table",
-      "transform": [
-        {
-          "type": "aggregate",
-          "groupby": ["Product"],
-          "fields": ["Company response to consumer"]
+          "sort": {"field": "sum","order": "ascending"}
         }
       ]
     }
   ],
   "scales": [
-    {
-      "name": "gscale",
-      "type": "band",
-      "range": [0,{"signal": "height"}],
-      "domain": {"data": "table","field": "Product"}
-    },
     {
       "name": "color",
       "type": "ordinal",
@@ -52,42 +30,19 @@
       "domain": {
         "data": "table",
         "field": "Company response to consumer",
-        "sort": {"op": "sum", "field": "count", "order": "descending"}
+        "sort": {"op": "sum","field": "count","order": "descending"}
       }
     }
   ],
   "legends": [
     {
       "fill": "color",
-      "orient": "none",
-      "title": "Company response to consumer",
-      "encode": {
-        "legend": {
-          "update": {
-            "x": {"signal": "radius + 30"}
-          }
-        }
-      }
+      "orient": "right",
+      "title": "Company response to consumer"
     }
   ],
+  "layout": {"padding": {"row": 20,"column": 20},"columns": 2},
   "marks": [
-    {
-      "type": "text",
-      "from": {"data": "products"},
-      "encode": {
-        "enter": {
-          "text": {"field": "Product"},
-          "y": {
-            "scale": "gscale",
-            "field": "Product",
-            "offset": "-10"
-          },
-          "align": {
-            "value": "center"
-          }
-        }
-      }
-    },
     {
       "name": "product-group",
       "type": "group",
@@ -102,26 +57,25 @@
         {
           "name": "pied",
           "source": "responses",
-          "transform": [{"type": "pie", "field": "count", "sort":false}]
+          "transform": [{"type": "pie","field": "count","sort": false}]
         }
       ],
-      "encode": {
-        "enter": {
-          "y": {
-            "scale": "gscale",
-            "field": "Product",
-            "offset": {"signal": "radius"}
-          }
-        }
-      },
       "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "text": {"field": {"parent": "Product"}},
+              "align": {"value": "center"}
+            }
+          }
+        },
         {
           "type": "arc",
           "from": {"data": "pied"},
           "encode": {
             "enter": {
-              "x": {"field": {"group": "width"},"mult": 0.5},
-              "y": {"field": {"group": "height"},"mult": 0.5},
+              "y": {"signal": "radius + 10"},
               "startAngle": {"field": "startAngle"},
               "endAngle": {"field": "endAngle"},
               "innerRadius": {"value": 20},

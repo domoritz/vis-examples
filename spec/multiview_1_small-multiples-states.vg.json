@@ -32,17 +32,6 @@
       "type": "quantize",
       "domain": {"data": "income","field": "value"},
       "range": {"scheme": "viridis"}
-    },
-    {
-      "name": "row",
-      "type": "band",
-      "domain": {
-        "data": "income",
-        "field": "key",
-        "sort": {"field": "order"}
-      },
-      "range": "height",
-      "round": true
     }
   ],
   "legends": [
@@ -61,6 +50,10 @@
       }
     }
   ],
+  "layout": {
+    "padding": {"row": 20,"column": 20},
+    "columns": 3
+  },
   "marks": [
     {
       "name": "cell",
@@ -91,7 +84,6 @@
           ]
         }
       ],
-      "encode": {"update": {"y": {"scale": "row","field": "key"}}},
       "marks": [
         {
           "type": "text",
