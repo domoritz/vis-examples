@@ -3,5 +3,8 @@
     "vega": "3",
     "vega-embed": "3",
     "vega-lite": "2"
+  },
+  "scripts": {
+    "start": "python -m SimpleHTTPServer 8005"
   }
 }
