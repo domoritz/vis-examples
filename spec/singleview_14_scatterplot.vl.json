@@ -3,8 +3,8 @@
   "data": { "url": "data/cars.csv" },
   "mark": "point",
   "encoding": {
-    "color": {"field": "body-style", "type": "nominal", "title": "Body Style"},
-    "y": {"field": "curb-weight", "type": "quantitative", "title": "Curb Weight"},
-    "x": {"field": "city-mpg", "type": "quantitative", "title": "City MPG"}
+    "color": {"field": "body-style", "type": "nominal", "legend": {"title": "Body Style"}},
+    "y": {"field": "curb-weight", "type": "quantitative", "axis": {"title": "Curb Weight"}},
+    "x": {"field": "city-mpg", "type": "quantitative", "axis": {"title": "City MPG"}}
   }
 }

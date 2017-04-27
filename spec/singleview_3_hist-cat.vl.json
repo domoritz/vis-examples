@@ -3,7 +3,7 @@
   "data": { "url": "data/cars.csv" },
   "mark": "bar",
   "encoding": {
-    "x": {"field": "body-style", "type": "nominal", "title": "Body Style"},
+    "x": {"field": "body-style", "type": "nominal", "axis": {"title": "Body Style"}},
     "y": {"field": "*", "type": "quantitative", "aggregate": "count"}
   }
 }

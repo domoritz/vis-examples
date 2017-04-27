@@ -5,7 +5,7 @@
   "encoding": {
     "x": {
       "timeUnit": "yearmonth", "field": "Date received", "type": "temporal",
-      "title": "Date Received"
+      "axis": {"title": "Date Received"}
     },
     "y": {"field": "*", "aggregate": "count", "type": "quantitative"},
     "color": {"field": "Product", "type": "nominal"}

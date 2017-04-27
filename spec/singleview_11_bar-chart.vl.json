@@ -3,7 +3,7 @@
   "data": { "url": "data/cars.csv" },
   "mark": "bar",
   "encoding": {
-    "y": {"field": "body-style", "type": "nominal", "title": "Body Style"},
-    "x": {"aggregate": "average", "field": "city-mpg", "type": "quantitative", "title": "City MPG"}
+    "y": {"field": "body-style", "type": "nominal", "axis": {"title": "Body Style"}},
+    "x": {"aggregate": "average", "field": "city-mpg", "type": "quantitative", "axis": {"title": "City MPG"}}
   }
 }
