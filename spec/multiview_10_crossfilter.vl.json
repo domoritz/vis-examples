@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": {"url": "data/europe_world_bank.csv"},
+  "hconcat": [
+    {
+      "mark": "bar",
+      "height": 700,
+       "selection": {
+        "brush": {"type": "single", "encodings": ["y"]}
+      },
+      "encoding": {
+        "y": {
+          "field": "Country",
+          "type": "ordinal",
+          "sort": {
+            "op": "min",
+            "field": "Population_ages_15_64_of_total",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "Population_ages_15_64_of_total",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {"selection": "!brush", "value": "steelblue"},
+          "value": "goldenrod"
+        }
+      }
+    },
+    {
+      "mark": "bar",
+      "height": 700,
+      "selection": {
+        "brush": {"type": "single", "encodings": ["y"]}
+      },
+      "encoding": {
+        "y": {
+          "field": "Country",
+          "type": "ordinal",
+          "sort": {
+            "op": "min",
+            "field": "Population_ages_65_and_above_of_total",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "Population_ages_65_and_above_of_total",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {"selection": "!brush", "value": "steelblue"},
+          "value": "goldenrod"
+        }
+      }
+    },
+    {
+      "mark": "point",
+      "width": 260,
+      "height": 260,
+      "selection": {"brush": {"type": "interval"}},
+      "encoding": {
+        "y": {
+          "field": "Population_ages_15_64_of_total",
+          "type": "quantitative",
+          "scale": {"zero": false}
+        },
+        "x": {
+          "field": "Population_ages_65_and_above_of_total",
+          "type": "quantitative",
+          "scale": {"zero": false}
+        },
+        "color": {
+          "condition": {"selection": "!brush", "value": "steelblue"},
+          "value": "goldenrod"
+        }
+      }
+    }
+  ]
+}
