@@ -6,7 +6,7 @@
       "mark": "bar",
       "height": 700,
        "selection": {
-        "brush": {"type": "single", "encodings": ["y"]}
+        "brush": {"type": "interval", "encodings": ["y"]}
       },
       "encoding": {
         "y": {
@@ -32,7 +32,7 @@
       "mark": "bar",
       "height": 700,
       "selection": {
-        "brush": {"type": "single", "encodings": ["y"]}
+        "brush": {"type": "interval", "encodings": ["y"]}
       },
       "encoding": {
         "y": {

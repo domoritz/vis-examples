@@ -17,3 +17,8 @@ limit 20000;
 ```bash
 sqlite3 complaints.db -header -csv < query.sql > complaints.cs
 ```
+
+## CO2 and Temperature data
+
+https://www.ncdc.noaa.gov/cag/time-series/global/globe/land_ocean/ytd/12/1880-2017
+http://data.okfn.org/data/core/co2-ppm
