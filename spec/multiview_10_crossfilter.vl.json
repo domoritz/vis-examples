@@ -3,54 +3,31 @@
   "data": {"url": "data/europe_world_bank.csv"},
   "hconcat": [
     {
-      "mark": "bar",
-      "height": 700,
-       "selection": {
-        "brush": {"type": "interval", "encodings": ["y"]}
+      "repeat": {
+        "column": ["Population_ages_15_64_of_total", "Population_ages_65_and_above_of_total"]
       },
-      "encoding": {
-        "y": {
-          "field": "Country",
-          "type": "ordinal",
-          "sort": {
-            "op": "min",
+      "spec": {
+        "mark": "bar",
+        "height": 700,
+        "selection": {"brush": {"type": "interval", "encodings": ["y"]}},
+        "encoding": {
+          "y": {
+            "field": "Country",
+            "type": "ordinal",
+            "sort": {
+              "op": "min",
+              "field": "Population_ages_15_64_of_total",
+              "order": "descending"
+            }
+          },
+          "x": {
             "field": "Population_ages_15_64_of_total",
-            "order": "descending"
+            "type": "quantitative"
+          },
+          "color": {
+            "condition": {"selection": "!brush", "value": "steelblue"},
+            "value": "goldenrod"
           }
-        },
-        "x": {
-          "field": "Population_ages_15_64_of_total",
-          "type": "quantitative"
-        },
-        "color": {
-          "condition": {"selection": "!brush", "value": "steelblue"},
-          "value": "goldenrod"
-        }
-      }
-    },
-    {
-      "mark": "bar",
-      "height": 700,
-      "selection": {
-        "brush": {"type": "interval", "encodings": ["y"]}
-      },
-      "encoding": {
-        "y": {
-          "field": "Country",
-          "type": "ordinal",
-          "sort": {
-            "op": "min",
-            "field": "Population_ages_65_and_above_of_total",
-            "order": "descending"
-          }
-        },
-        "x": {
-          "field": "Population_ages_65_and_above_of_total",
-          "type": "quantitative"
-        },
-        "color": {
-          "condition": {"selection": "!brush", "value": "steelblue"},
-          "value": "goldenrod"
         }
       }
     },
