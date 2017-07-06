@@ -25,7 +25,7 @@
             "type": "quantitative"
           },
           "color": {
-            "condition": {"selection": "!brush", "value": "steelblue"},
+            "condition": {"selection": {"not": "brush"}, "value": "steelblue"},
             "value": "goldenrod"
           }
         }
@@ -48,7 +48,7 @@
           "scale": {"zero": false}
         },
         "color": {
-          "condition": {"selection": "!brush", "value": "steelblue"},
+          "condition": {"selection": {"not": "brush"}, "value": "steelblue"},
           "value": "goldenrod"
         }
       }
