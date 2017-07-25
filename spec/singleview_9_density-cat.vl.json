@@ -6,5 +6,12 @@
     "y": {"field": "make", "type": "nominal", "title": "Make"},
     "x": {"field": "body-style", "type": "nominal", "title": "Body Style"},
     "color": {"aggregate": "count", "field": "*", "type": "quantitative"}
+  },
+  "config": {
+    "range": {
+      "heatmap": {
+        "scheme": "greenblue"
+      }
+    }
   }
 }

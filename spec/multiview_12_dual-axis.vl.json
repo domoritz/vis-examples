@@ -52,7 +52,7 @@
               "type": "temporal",
               "timeUnit": "year"
             },
-            "y": {"field": "Value","type": "quantitative"},
+            "y": {"field": "Value","type": "quantitative", "axis": false},
             "color": {"value": "firebrick"}
           }
         }

@@ -6,5 +6,12 @@
     "y": {"field": "Product", "type": "nominal"},
     "x": {"field": "Company response to consumer", "type": "nominal"},
     "color": {"field": "*", "aggregate": "count", "type": "quantitative"}
+  },
+  "config": {
+    "range": {
+      "heatmap": {
+        "scheme": "greenblue"
+      }
+    }
   }
 }

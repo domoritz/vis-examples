@@ -9,7 +9,13 @@
       "spec": {
         "mark": "bar",
         "height": 700,
-        "selection": {"brush": {"type": "interval", "encodings": ["y"]}},
+        "selection": {
+          "brush": {
+            "type": "interval",
+            "encodings": ["y"],
+            "resolve": "intersect_others"
+          }
+        },
         "encoding": {
           "y": {
             "field": "Country",
@@ -35,7 +41,12 @@
       "mark": "point",
       "width": 260,
       "height": 260,
-      "selection": {"brush": {"type": "interval"}},
+      "selection": {
+        "brush": {
+          "type": "interval",
+          "resolve": "intersect_others"
+        }
+        },
       "encoding": {
         "y": {
           "field": "Population_ages_15_64_of_total",
