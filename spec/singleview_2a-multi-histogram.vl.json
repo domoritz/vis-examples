@@ -3,8 +3,8 @@
   "data": { "url": "data/cars.csv" },
   "mark": "bar",
   "encoding": {
-    "x": {"bin": true, "field": "curb-weight", "type": "quantitative", "title": "Curb Weight"},
+    "x": {"bin": true, "field": "curb-weight", "type": "quantitative", "axis": {"title": "Curb Weight"}},
     "y": { "aggregate": "count", "field": "*", "type": "quantitative", "stack": "none"},
-    "column": {"field": "body-style", "type": "nominal", "title": "Body Style"}
+    "column": {"field": "body-style", "type": "nominal", "header": {"title": "Body Style"}}
   }
 }

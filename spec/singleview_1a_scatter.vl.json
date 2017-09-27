@@ -13,8 +13,8 @@
     }
   ],
   "encoding": {
-    "x": {"aggregate": "sum", "field": "relief", "type": "quantitative", "title": "# of closed-any-relief"},
-    "y": {"aggregate": "sum", "field": "norelief", "type": "quantitative", "title": "# of closed-no-relief"},
+    "x": {"aggregate": "sum", "field": "relief", "type": "quantitative", "axis": {"title": "# of closed-any-relief"}},
+    "y": {"aggregate": "sum", "field": "norelief", "type": "quantitative", "axis": {"title": "# of closed-no-relief"}},
     "color": {"field": "Product", "type": "nominal"}
   }
 }
