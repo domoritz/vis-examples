@@ -6,6 +6,7 @@
   },
   "scripts": {
     "start": "python -m SimpleHTTPServer 8005",
-    "toSVG": "./toSVG.bash"
+    "toSVG": "./toSVG.bash",
+    "toPNG": "./toPNG.bash"
   }
 }
