@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "config": {"background":"#fdf5e6"},
   "data": {"url": "data/cars.csv"},
   "repeat": {
     "row": [

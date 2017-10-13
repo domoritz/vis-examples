@@ -1,5 +1,6 @@
 {
-  "$schema": "https://vega.github.io/schema/vega/v3.0.json",
+  "$schema": "https://vega.github.io/schema/vega/v3.0.json", 
+  "config":{"background":"#fdf5e6"},
   "autosize": "pad",
   "signals": [{"name": "radius","value": 80}],
   "data": [
