@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v3.0.json", 
+  "__commment__": "Modified from 13_pie; this version only shows one pie but maintains the small mult infrastructure",
   "config":{"background":"#ffffff"},
   "autosize": "pad",
   "signals": [{"name": "radius","value": 80}],
@@ -11,7 +12,7 @@
       "transform": [
         {
           "type": "aggregate",
-          "groupby": ["Company response to consumer","Product"],
+          "groupby": ["Company response to consumer"],
           "fields": ["Company response to consumer"],
           "ops": ["count"],
           "as": ["count"]
@@ -79,7 +80,7 @@
               "y": {"signal": "radius + 10"},
               "startAngle": {"field": "startAngle"},
               "endAngle": {"field": "endAngle"},
-              "innerRadius": {"value": 20},
+              "innerRadius": {"value": 40},
               "outerRadius": {"signal": "radius"},
               "stroke": {"value": "#fff"},
               "fill": {

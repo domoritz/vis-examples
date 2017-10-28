@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
-  "config": {"background":"#fdf5e6"},  
+  "config": {"background":"#ffffff"},   
   "mark": "point",
   "data": {"url": "data/complaints.csv", "format": {"type": "csv"}},
   "transform": [
@@ -14,8 +14,8 @@
     }
   ],
   "encoding": {
-    "x": {"aggregate": "sum", "field": "relief", "type": "quantitative", "axis": {"title": "# of closed-any-relief"}},
-    "y": {"aggregate": "sum", "field": "norelief", "type": "quantitative", "axis": {"title": "# of closed-no-relief"}},
+    "x": {"aggregate": "sum", "field": "relief", "type": "quantitative", "axis": {"title": "Complaints with Relief"}},
+    "y": {"aggregate": "sum", "field": "norelief", "type": "quantitative", "axis": {"title": "Complaints without Relief"}},
     "color": {"field": "Product", "type": "nominal"}
   }
 }

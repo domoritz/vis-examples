@@ -1,13 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v3.0.json", 
-  "config":{"background":"#fdf5e6"},
-  "width": 300,
-  "height": 2200,
+  "config":{"background":"#ffffff"},
   "autosize": "pad",
   "data": [
     {
       "name": "income",
-      "url": "data/income.csv",
+      "url": "data/income_cleaned.csv",
       "format": {
         "type": "csv",
         "parse": {"id": "number","value": "number"}

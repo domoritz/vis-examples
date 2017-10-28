@@ -1,10 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
-  "config": {"background":"#fdf5e6"},  
-  "data": { "url": "data/cars.csv" },
+  "config": {"background":"#ffffff"},   
+  "data": {
+       "url": "data/cars.csv", 
+       "format": {"type":"csv"} 
+      },
   "mark": "bar",
   "encoding": {
-    "x": {"field": "body-style", "type": "nominal", "axis": {"title": "Body Style"}},
+    "x": {
+      "field": "body-style", 
+      "type": "nominal", 
+      "axis": {"title": "Body Style"},
+      "sort": {
+        "field":"*", 
+        "op": "count",
+        "order": "descending" 
+        }      
+      },
     "y": {"field": "*", "type": "quantitative", "aggregate": "count"}
   }
 }

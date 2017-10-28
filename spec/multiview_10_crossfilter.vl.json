@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json", 
-  "config":{"background":"#fdf5e6"},
+  "config":{"background":"#ffffff"},
   "data": {"url": "data/europe_world_bank.csv"},
   "hconcat": [
     {

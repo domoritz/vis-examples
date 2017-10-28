@@ -1,12 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
-  "config": {"background":"#fdf5e6"},  
+  "config": {"background":"#ffffff"},   
   "data": { "url": "data/cars.csv" },
   "layer": [
     {
       "mark": "rule",
       "encoding": {
-        "x": {"field": "body-style", "type": "nominal"},
+        "x": {
+          "field": "body-style", 
+          "type": "nominal"},
         "y": {
           "aggregate": "min",
           "field": "curb-weight",
@@ -23,7 +25,10 @@
     {
       "mark": "tick",
       "encoding": {
-        "x": {"field": "body-style", "type": "nominal"},
+        "x": {
+          "field": "body-style", 
+          "type": "nominal"
+        },
         "y": {
           "aggregate": "min",
           "field": "curb-weight",
