@@ -4,8 +4,8 @@
   "data": { "url": "data/cars.csv" },
   "mark": "bar",
   "encoding": {
-    "column": {"field": "body-style", "type": "nominal", "axis": {"title": "Body Style"}},
-    "x": {"field": "city-mpg", "type": "quantitative", "bin": true, "title": "City MPG"},
-    "y": {"field": "*", "type": "quantitative", "aggregate": "count"}
+    "column": {"field": "body-style", "type": "nominal", "header": {"title": "Body Style"}},
+    "x": {"field": "city-mpg", "type": "quantitative", "bin": true, "axis": {"title": "City MPG"}},
+    "y": {"type": "quantitative", "aggregate": "count"}
   }
 }

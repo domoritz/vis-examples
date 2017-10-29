@@ -5,7 +5,7 @@
   "mark": "bar",
   "encoding": {
     "x": {"bin": true, "field": "curb-weight", "type": "quantitative", "axis": {"title": "Curb Weight"}},
-    "y": { "aggregate": "count", "field": "*", "type": "quantitative", "stack": "none"},
+    "y": { "aggregate": "count", "type": "quantitative", "stack": null},
     "column": {"field": "body-style", "type": "nominal", "header": {"title": "Body Style"}}
   }
 }

@@ -17,6 +17,6 @@
         "order": "descending" 
         }      
       },
-    "y": {"field": "*", "type": "quantitative", "aggregate": "count"}
+    "y": {"type": "quantitative", "aggregate": "count"}
   }
 }

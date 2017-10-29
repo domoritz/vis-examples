@@ -9,7 +9,7 @@
   }],
   "encoding": {
     "column": {"field": "relief", "type": "nominal" },
-    "y": {"aggregate": "count", "field": "*", "type": "quantitative"},
+    "y": {"aggregate": "count", "type": "quantitative"},
     "x": {"field": "Product", "type": "nominal", "axis": {"labels": false}},
     "color": {"field": "Product", "type": "nominal"}
   }

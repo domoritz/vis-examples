@@ -47,10 +47,8 @@ function load(name) {
     }
   }
 
-  vega.embed('#view', './spec/' + name, {renderer: renderType}).then(function(res) {
+  vegaEmbed('#view', './spec/' + name, {renderer: renderType}).then(function(res) {
     view = res.view;
     current = name;
-  }).catch(function(err) {
-    console.error(err);
-  });
+  }).catch(console.error);
 }

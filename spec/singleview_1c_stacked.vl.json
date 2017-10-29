@@ -9,7 +9,7 @@
   }],
   "encoding": {
     "y": {"field": "Product", "type": "nominal"},
-    "x": {"aggregate": "count", "field": "*", "type": "quantitative"},
+    "x": {"aggregate": "count", "type": "quantitative"},
     "color": {"field": "relief", "type": "nominal"}
   }
 }

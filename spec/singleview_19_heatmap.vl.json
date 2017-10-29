@@ -16,6 +16,6 @@
       "field": "Date received", 
       "type": "temporal", 
       "timeUnit":"yearmonth"},
-    "color": {"field": "*", "aggregate": "count", "type": "quantitative"}
+    "color": {"aggregate": "count", "type": "quantitative"}
   }
 }
