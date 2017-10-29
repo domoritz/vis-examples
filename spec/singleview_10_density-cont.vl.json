@@ -6,7 +6,7 @@
   "encoding": {
     "y": {"field": "curb-weight", "bin": true, "type": "quantitative", "axis": {"title": "Curb Weight"}},
     "x": {"field": "city-mpg", "bin": true, "type": "quantitative", "axis": {"title": "City MPG"}},
-    "color": {"aggregate": "count", "field": "*", "type": "quantitative"}
+    "color": {"aggregate": "count", "type": "quantitative"}
   },
   "config": {
     "range": {
