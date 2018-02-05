@@ -1,5 +1,7 @@
 # Vis examples
 
+**Examples are now at https://makingdatavisual.github.io/**
+
 ## Consumer complaints
 
 ```bash
